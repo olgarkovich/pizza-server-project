@@ -1,24 +1,53 @@
 package com.example.controller;
 
 import com.example.entity.Example;
+import com.example.repository.ExampleRepository;
+import com.example.service.ExampleService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
+import java.util.List;
 
 @RestController
-@RequestMapping("/example")
+@RequestMapping("/app")
 public class ExampleController {
 
-    @RequestMapping(value = "/get", method = RequestMethod.GET)
+    @Autowired
+    private ExampleService exampleService;
+
+    @RequestMapping(value = "/examples/text", method = RequestMethod.GET)
     @ResponseBody
-    public Example getExample() {
-        return createMockEx();
+    public String getText() {
+        return "Ahahahah";
+    }
+
+    @RequestMapping(value = "/examples", method = RequestMethod.GET)
+    @ResponseBody
+    public List<Example> getAllExamples() {
+        createMockEx();
+        return exampleService.getAll();
+    }
+
+    @RequestMapping(value = "/examples/{id}", method = RequestMethod.GET)
+    @ResponseBody
+    public Example getExample(@PathVariable("id") int exID) {
+        return exampleService.getByID(exID);
+    }
+
+    @RequestMapping(value = "/examples", method = RequestMethod.POST)
+    @ResponseBody
+    public Example saveExamples(@RequestBody Example ex) {
+        return exampleService.save(ex);
+    }
+
+    @RequestMapping(value = "/examples/{id}", method = RequestMethod.DELETE)
+    @ResponseBody
+    public void deleteExample(@PathVariable int id) {
+        exampleService.remove(id);
     }
 
     private Example createMockEx() {

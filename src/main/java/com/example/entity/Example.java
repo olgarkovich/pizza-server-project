@@ -1,8 +1,11 @@
 package com.example.entity;
 
+import com.example.repository.ExampleRepository;
 import org.hibernate.annotations.GenericGenerator;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.*;
+import javax.persistence.criteria.CriteriaBuilder;
 import java.util.Date;
 
 @Entity
@@ -12,12 +15,13 @@ public class Example {
     @Id
     @GeneratedValue(generator = "increment")
     @GenericGenerator(name = "increment", strategy = "increment")
-    private int id;
+    private Integer id;
 
     @Column(nullable = false, length = 50)
     private String title;
 
     @Column(nullable = false)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date remindDate;
 
     public Example() {}
