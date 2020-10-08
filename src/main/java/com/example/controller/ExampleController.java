@@ -11,15 +11,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Date;
 
-@Controller
+@RestController
 @RequestMapping("/example")
 public class ExampleController {
 
     @RequestMapping(value = "/get", method = RequestMethod.GET)
     @ResponseBody
-    public String getExample(ModelMap model) {
-        return "re";
-        //return createMockEx();
+    public Example getExample() {
+        return createMockEx();
     }
 
     private Example createMockEx() {

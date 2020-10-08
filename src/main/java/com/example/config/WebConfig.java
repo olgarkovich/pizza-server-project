@@ -17,14 +17,14 @@ import java.util.List;
 @ComponentScan("com.example")
 public class WebConfig extends WebMvcConfigurerAdapter {
 
-//    @Override
-//    public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
-//        //super.configureMessageConverters(converters);
-////        MappingJackson2HttpMessageConverter converter = new MappingJackson2HttpMessageConverter();
-////        converter.setObjectMapper(new ObjectMapper());
-////        converter.setSupportedMediaTypes(Collections.singletonList(MediaType.APPLICATION_JSON));
-////
-////        converters.add(converter);
-//    }
+    @Override
+    public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
+        super.configureMessageConverters(converters);
+        MappingJackson2HttpMessageConverter converter = new MappingJackson2HttpMessageConverter();
+        converter.setObjectMapper(new ObjectMapper());
+        converter.setSupportedMediaTypes(Collections.singletonList(MediaType.APPLICATION_JSON));
+
+        converters.add(converter);
+    }
 }
 
