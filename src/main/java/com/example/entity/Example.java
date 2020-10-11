@@ -1,11 +1,8 @@
 package com.example.entity;
 
-import com.example.repository.ExampleRepository;
 import org.hibernate.annotations.GenericGenerator;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.*;
-import javax.persistence.criteria.CriteriaBuilder;
 import java.util.Date;
 
 @Entity
