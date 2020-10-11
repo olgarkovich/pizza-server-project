@@ -4,10 +4,10 @@ import com.example.entity.Pizza;
 
 import java.util.List;
 
-public interface PizzaService {
+public interface FoodService<T> {
 
-    List<Pizza> getAll();
-    Pizza getByID(int id);
-    Pizza save(Pizza ex);
+    List<T> getAll();
+    T getByID(int id);
+    T save(T ex);
     void remove(int id);
 }

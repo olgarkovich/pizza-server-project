@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class DessertServiceImpl implements DessertService {
+public class DessertServiceImpl implements FoodService<Dessert> {
 
     @Autowired
     private DessertRepository repository;

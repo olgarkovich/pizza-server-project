@@ -2,7 +2,7 @@ package com.example.controller;
 
 
 import com.example.entity.Drink;
-import com.example.service.DrinkService;
+import com.example.service.FoodService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,7 +13,7 @@ import java.util.List;
 public class DrinkController {
 
     @Autowired
-    private DrinkService drinkService;
+    private FoodService<Drink> drinkService;
 
     @RequestMapping(value = "/drink/text", method = RequestMethod.GET)
     @ResponseBody

@@ -1,7 +1,7 @@
 package com.example.controller;
 
 import com.example.entity.Dessert;
-import com.example.service.DessertService;
+import com.example.service.FoodService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,7 +12,7 @@ import java.util.List;
 public class DessertController {
 
     @Autowired
-    private DessertService dessertService;
+    private FoodService<Dessert> dessertService;
 
     @RequestMapping(value = "/dessert/text", method = RequestMethod.GET)
     @ResponseBody
@@ -57,6 +57,7 @@ public class DessertController {
         p.setName("Маргарита");
         p.setPrice("10 20 30");
         p.setWeight("15 25 35");
+        p.setCount(5);
         p.setIngredient("Сыр");
         p.setPicture("dddd");
 
